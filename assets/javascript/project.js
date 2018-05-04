@@ -15,7 +15,7 @@ function buildQueryURL() {
   // add the api key parameter (the one we received when we registered)
   queryURL += "?api_key=vX65llVP5vNMB4aIlcdXvQsNn0UaBxPBlg1QWjj7";
 
-  // grab text the user typed into the zipcode search input, add as parameter to url
+  // grab text the user typed into the  ZIP Code search input, add as parameter to url
   var searchTerm = $("#search-zipcode").val().trim();
   queryURL += "&location=" + searchTerm;
 
