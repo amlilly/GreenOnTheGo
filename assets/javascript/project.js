@@ -135,7 +135,7 @@ function buildQueryURL() {
   $("#jsResults").on("click", ".jsImageButton", function () {
     // alert("clicked it");
   
-    var imageUrlBaseq = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=";
+    var imageUrlBase = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=";
   
     var imageUrlLocation = $(this).attr("data-location-image");
   
