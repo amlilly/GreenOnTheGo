@@ -33,6 +33,8 @@ $('#search-zipcode').keypress(function (e) {
   }
 });
 
+
+
 /**
  **********************************************************
  * Alternative Fuel Station Look-up API
@@ -54,7 +56,7 @@ function buildQueryURL() {
   queryURL += "&location=" + searchTerm;
 
   // Logging the URL so we have access to it for troubleshooting
-  console.log("---------------\nURL: " + queryURL + "\n---------------");
+  // console.log("---------------\nURL: " + queryURL + "\n---------------");
 
   return queryURL;
 }
@@ -78,8 +80,8 @@ function updatePage(AltFuelData) {
   // var numStations = $("#station-count").val();
 
   // log the AltFuelData to console, where it will show up as an object
-  console.log(AltFuelData);
-  console.log("------------------------------------");
+  // console.log(AltFuelData);
+  // console.log("------------------------------------");
 
   // loop through and build elements for the defined number of stations
   for (var i = 0; i < numStations; i++) {
@@ -106,17 +108,17 @@ function updatePage(AltFuelData) {
     var zip = station.zip;
 
     // if the station has a fuelType, log and append to $stationWell  
-    if (station.fuel_type_code) {
-      console.log("------------------------------------");
-      console.log(fuelType);
-      console.log("------------------------------------");
-    }
+    // if (station.fuel_type_code) {
+    //   console.log("------------------------------------");
+    //   console.log(fuelType);
+    //   console.log("------------------------------------");
+    // }
 
     // if the station has a station_name, log and append to $stationWell
-    if (station.station_name) {
-      console.log(stationName);
-      console.log("------------------------------------");
-    }
+    // if (station.station_name) {
+    //   console.log(stationName);
+    //   console.log("------------------------------------");
+    // }
 
     // log street, and append to document if exists
     console.log(station.street_address);
@@ -134,14 +136,52 @@ function updatePage(AltFuelData) {
     }
 
     // log zip, and append to document if exists
-    console.log(zip);
-    if (zip) {
-    }
+    // console.log(zip);
+    // if (zip) {
+    // }
+
+
+
+
+
+    /* BUTTON LOGIC (must be in this function)
+    Logic for constructing modal button with unique data values for each result */
+
+    // make string with address, city, state
+    var constructDataLocationImage = station.street_address + "+" + city + "+" + state;
+    console.log("constructDataLocationImage is", constructDataLocationImage);
+
+    // replace spaces in constructDataLocationImage with +
+    var constructDataLocationImageFinal = constructDataLocationImage.replace(/\s/g, "+");
+    
+
+    console.log("constructDataLocationImageFinal is ", constructDataLocationImageFinal);
+
+
+
+    var dataLocationImage = constructDataLocationImageFinal;
+    // var dataLocationName = "Holiday Stationstore #335";
+    var dataLocationName = stationName;
+
+
+    var modalLink = "<a class='jsImageButton waves-effect waves-light btn modal-trigger green' href='#modal1' data-location-image='" + dataLocationImage + "' data-location-name='" + dataLocationName + "'><i class='material-icons dp48'>image</i><span>View location</span></a>"; 
+
+
+
 
     //add data into html table
+    /* before modal window changes. sjaps
     $("#well-section > tbody").append("<tr><td>" + fuelType + "</td><td>" + stationName +
       "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip +
       "</td><td>" + "Modal Button Goes Here" + "</td></tr>");
+    */
+   $("#well-section > tbody").append("<tr><td>" + fuelType + "</td><td>" + stationName +
+   "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip +
+   "</td><td>" + modalLink + "</td></tr>");
+
+
+
+
   }
 }
 
@@ -153,8 +193,13 @@ function updatePage(AltFuelData) {
  **********************************************************
  */
 
+/* Modernizer needs this for modal window to work */
+$(document).ready(function () {
+  $('.modal').modal();
+});
+
 // Click events for view location
-$("#jsResults").on("click", ".jsImageButton", function () {
+$("#well-section").on("click", ".jsImageButton", function () {
   // alert("clicked it");
 
   var imageUrlBase = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=";
