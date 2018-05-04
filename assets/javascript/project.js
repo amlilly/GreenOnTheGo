@@ -61,6 +61,38 @@ function buildQueryURL() {
   return queryURL;
 }
 
+/* builds query url base on information in city/state form */
+function buildQueryURLcityState() {
+  // queryURL is the url we'll use to query the API
+  var queryURL = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json";
+
+  // add the api key parameter (the one we received when we registered)
+  queryURL += "?api_key=vX65llVP5vNMB4aIlcdXvQsNn0UaBxPBlg1QWjj7";
+
+  // get text the user typed into the city field
+  var city = $("#search-city").val().trim();
+  // console.log("city is ", city);
+
+  // get state selected in state field
+  var state = $("#search-state").val();
+  // console.log("state is ", state);
+  
+  // put city and state in a string
+  var cityAndState = city + "+" + state;
+  // console.log("cityAndState is ", cityAndState);
+
+  // replace spaces in string with +
+  var searchTerm = cityAndState.replace(/\s/g, "+");
+  // console.log("searchTerm is ", searchTerm);
+
+  queryURL += "&location=" + searchTerm;
+
+  // Logging the URL so we have access to it for troubleshooting
+  // console.log("---------------\nURL: " + queryURL + "\n---------------");
+
+  return queryURL;
+}
+
 
 
 /**
@@ -121,19 +153,19 @@ function updatePage(AltFuelData) {
     // }
 
     // log street, and append to document if exists
-    console.log(station.street_address);
-    if (station.street_address) {
-    }
+    // console.log(station.street_address);
+    // if (station.street_address) {
+    // }
 
     // log city, and append to document if exists
-    console.log(city);
-    if (city) {
-    }
+    // console.log(city);
+    // if (city) {
+    // }
 
     // log state, and append to document if exists
-    console.log(state);
-    if (state) {
-    }
+    // console.log(state);
+    // if (state) {
+    // }
 
     // log zip, and append to document if exists
     // console.log(zip);
@@ -149,13 +181,13 @@ function updatePage(AltFuelData) {
 
     // make string with address, city, state
     var constructDataLocationImage = station.street_address + "+" + city + "+" + state;
-    console.log("constructDataLocationImage is", constructDataLocationImage);
+    // console.log("constructDataLocationImage is", constructDataLocationImage);
 
     // replace spaces in constructDataLocationImage with +
     var constructDataLocationImageFinal = constructDataLocationImage.replace(/\s/g, "+");
     
 
-    console.log("constructDataLocationImageFinal is ", constructDataLocationImageFinal);
+    // console.log("constructDataLocationImageFinal is ", constructDataLocationImageFinal);
 
 
 
@@ -282,3 +314,25 @@ $("#run-zip").on("click", function (event) {
   }).then(updatePage);
 });
 
+
+// .on("click") function associated with the City/State Submit Button
+$("#run-city-state").on("click", function (event) {
+  // This line allows us to take advantage of the HTML "submit" property
+  // This way we can hit enter on the keyboard and it registers the search
+  // (in addition to clicks). Prevents the page from reloading on form submit.
+  event.preventDefault();
+
+  // empty the region associated with the articles
+  clear();
+
+  // build the query URL for the ajax request to the ALT Fuel API
+  // var queryURL = buildQueryURL();
+  var queryURL = buildQueryURLcityState();
+
+  // make the AJAX request to the API - GETs the JSON data at the queryURL.
+  // the data then gets passed as an argument to the updatePage function
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(updatePage);
+});
