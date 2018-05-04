@@ -1,5 +1,40 @@
 /**
  **********************************************************
+ * Input Validations
+ **********************************************************
+ */
+//allows only letters to be entered (Still need to allow spaces)
+$('#search-city').keypress(function (e) {
+  var regex = new RegExp("^[a-zA-Z .]+$");
+  var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+  if (regex.test(str)) {
+      return true;
+  }
+  else
+  {
+  e.preventDefault();
+  // alert('Please Enter Alphabate');
+  return false;
+  }
+});
+
+//allows only numbers to be entered
+$('#search-zipcode').keypress(function (e) {
+  var regex = new RegExp("^[0-9]+$");  
+  var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+  if (regex.test(str)) {
+      return true;
+  }
+  else
+  {
+  e.preventDefault();
+  // alert('Please Enter Alphabate');
+  return false;
+  }
+});
+
+/**
+ **********************************************************
  * Alternative Fuel Station Look-up API
  **********************************************************
  */
