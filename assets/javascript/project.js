@@ -1,4 +1,3 @@
-
 /**
  **********************************************************
  * Alternative Fuel Station Look-up API
@@ -29,7 +28,7 @@ function buildQueryURL() {
 
 /**
  **********************************************************
- * Alternative Fuel Station
+ * Main Alternative Fuel Station API Work
  **********************************************************
  */
 /**
@@ -82,34 +81,28 @@ function updatePage(AltFuelData) {
     if (station.station_name) {
       console.log(stationName);
       console.log("------------------------------------");
-
-      //$stationWell.append("<h5>" + station.station_name + "</h5>");
     }
 
     // log street, and append to document if exists
     console.log(station.street_address);
     if (station.street_address) {
-      //$stationWell.append("<h5>" + street + "</h5>");
     }
 
     // log city, and append to document if exists
     console.log(city);
     if (city) {
-      //$stationWell.append("<h5>" + station.city + "</h5>");
     }
 
     // log state, and append to document if exists
     console.log(state);
     if (state) {
-      //$stationWell.append("<h5>" + station.state + "</h5>");
     }
 
     // log zip, and append to document if exists
-
     console.log(zip);
     if (zip) {
-      //$stationWell.append("<h5>" + station.zip + "</h5>");
     }
+
     //add data into html table
     $("#well-section > tbody").append("<tr><td>" + fuelType + "</td><td>" + stationName +
       "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip + "</td><td>" + "Modal Button Goes Here" + "</td></tr>");
