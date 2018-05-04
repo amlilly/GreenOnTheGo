@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>SafeStay</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Import Google Text Font -->
+    <link href="https://fonts.googleapis.com/css?family=Titan+One" rel="stylesheet">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+</head>
+
+<body class="green">
+
+    <!-- HEADER -->
+    <header class="section no-pad-bot no-pad-top white" id="index-banner">
+
+        <div class="row">
+            <div class="col s12 m3">
+                <img src="assets/images/green-truck-large.png" class="image-flip">
+            </div>
+
+            <div class="col s12 m6">
+                <div class="row center">
+                    <h1 class="header center orange-text">
+                        <span class="inline-block">
+                            Green
+                        </span>
+                        <span class="inline-block">
+                            on the Go
+                        </span>
+                    </h1>
+                    <h2 class="header col s12 light subtitle">
+                        <span class="inline-block">
+                            Enter a location to find the
+                        </span>
+                        <span class="inline-block">
+                            nearest alternative fuel stations
+                        </span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+                <img src="assets/images/green-truck-large.png">
+            </div>
+        </div>
+
+    </header>
+
+    <section class="container">
+
+
+
+        <div class="row center">
+            <!-- <input id="jsLocation" type="text" name="location" placeholder="Enter an address here"> -->
+
+            <!-- <span>Enter an address here</span> -->
+            <!--                 
+                <form id="form-container" class="form-container">
+                    <label for="street">Street: </label>
+                    <input type="text" id="street" value="">
+                    <label for="city">City: </label>
+                    <input type="text" id="city" value="">
+                    <button id="submit">Submit</button>
+                </form> -->
+
+            <div class="col s12 m5">
+                <!-- <label for="city">City </label>
+                        <input type="text" id="city" value="">
+                        <label for="state">State </label>
+                        <input type="text" id="state" value=""> -->
+
+                <div class="card green lighten-5">
+                    <div class="card-content">
+                        <form>
+                            <div class="row">
+                                <div class="col s6">
+                                    <label for="city">City </label>
+                                    <input type="text" id="search-city" value="" type="text" required>
+                                </div>
+                                <!-- <div class="col s12 m6">
+                                    <label for="state">State </label>
+                                    <input type="text" id="state" value="">
+                                </div> -->
+                                <div class="col s6">
+                                    <label>State</label>
+                                    <div class="underline">
+                                        <select class="browser-default" required>
+                                            <option value="" disabled selected></option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">D.C.</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col s12">
+                                <button id="run-city-state" class="btn waves-effect waves-light green" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col s12 m2 or">
+                OR
+            </div>
+            <div class="col s12 m5">
+                <!-- <label for="zipcode">Zipcode </label>
+                    <input type="text" id="zipcode" value=""> -->
+
+                <div class="card green lighten-5">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12 m12">
+                                <label for="zipcode">Zipcode </label>
+                                <input type="text" id="search-zipcode" maxlength="5" minlength="5" type="number">
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button class="btn waves-effect waves-light green" id="run-zip" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container">
+
+        <!-- ***************************************************************************
+    Area that displays the API data requested. Needs to be put into a table form
+    *************************************************************************** -->
+
+        <!-- This row will handle all of the retrieved stations -->
+        <div class="row">
+            <div class="col-sm-12 resultsDiv">
+                <!-- This main panel will hold each of the resulting stations -->
+                <table class="centered" id="well-section">
+                    <thead>
+                        <tr>
+                            <th>Fuel Type</th>
+                            <th>Station Name</th>
+                            <th>Address</th>
+                            <th>Modal Window</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Modal Trigger Demo -->
+    <!-- <td>
+            <a class="jsImageButton waves-effect waves-light btn modal-trigger green" href="#modal1" data-location-image="1301+Industrial+Blvd+NE+Minneapolis+MN"
+                data-location-name="Holiday Stationstore #335">
+                <i class="material-icons dp48">image</i>
+                <span>View location</span>
+            </a>
+        </td> -->
+
+
+
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+
+        <div class="modal-footer">
+            <!-- link with close function -->
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+                <i class="material-icons dp48">close</i>
+            </a>
+        </div>
+
+        <div class="modal-content center-align">
+
+            <!-- caption for image -->
+            <h3 id="jsCaption" class="modalCaption"></h3>
+
+            <!-- image of location -->
+            <img id="jsImage" class="modalImage" src="" alt="">
+        </div>
+
+    </div>
+
+
+
+    <!-- JQUERY  -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Compiled and minified JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <!-- Link to the project JavaScript file-->
+    <script type="text/javascript" src="assets/javascript/project.js"></script>
+
+
+    <!-- javascript for form validation that Andrew will need to put in the project.js document -->
+    <!-- <script>
+        $("#run-city-state").on("click", function (event) {
+            // can't do this with two submit buttons
+            // event.preventDefault();
+
+            var city = $("#search-city").val();
+            var state = $("#search-state option:checked").find(":selected").text();
+
+            console.log("city is: ", city);
+            console.log("state is:", state);
+
+            $("#search-city").val("");
+            $("#search-state option selected").val("");
+        });
+
+        $("#run-zip").on("click", function (event) {
+            // can't do this with two submit buttons
+            // event.preventDefault();
+
+            var zipcode = $("#search-zipcode").val();
+
+            console.log("zipcode is: ", zipcode);
+
+            $("#search-zipcode").val("");
+        });
+    </script> -->
+
+
+
+    <!-- Modal Window -->
+    <!-- <script>
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
+
+
+        // Click events for crystals
+        $("#jsResults").on("click", ".jsImageButton", function () {
+            // alert("clicked it");
+
+            var imageUrlBase = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=";
+
+            var imageUrlLocation = $(this).attr("data-location-image");
+
+            var imageUrlKey = "&key=AIzaSyBjs2MJp6REK0q4qkuENY_D78R4jZVr4OI";
+
+
+            // alt value for  image
+            var imageAltParameter = $(this).attr("data-location-name");
+            console.log("imageAltParameter is ", imageAltParameter);
+
+            // src value for image
+            var imageUrlFinal = imageUrlBase + imageUrlLocation + imageUrlKey;
+            console.log("imageUrlFinal is ", imageUrlFinal);
+
+            $("#jsImage").attr("src", imageUrlFinal);
+            $("#jsImage").attr("alt", imageAltParameter);
+
+            $("#jsCaption").text(imageAltParameter);
+
+        });
+    </script> -->
+
+
+</body>
+
+</html>

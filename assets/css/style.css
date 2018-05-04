@@ -1,0 +1,128 @@
+/* 
+--------------------------------
+COLOR SCHEME https://coolors.co/
+--------------------------------
+#1b5e20 green darken-4 
+#4caf50 green
+#ccff90 light-green accent-1
+#e8f5e9 green lighten-5
+#ff9800 orange
+*/
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.image-flip {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: " FlipH ";
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+h2.subtitle {
+    font-size: 1.64rem;
+    margin: .25rem;
+}
+
+.or {
+    color: #E8F5E9;
+    font-family: 'Titan One', cursive;
+    font-size: 4rem;
+    line-height: 10rem;
+    text-shadow: rgba(0, 0, 0, 0.2) 3px 3px 0;
+}
+
+.resultsDiv table {
+    background: white;
+    color: black;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+.resultsDiv table th {
+    background: #ccff90;
+}
+
+.resultsDiv table th:first-of-type {
+    border-radius: 15px 0 0 0;
+    -moz-border-radius: 15px 0 0 0;
+}
+
+.resultsDiv table th:last-of-type {
+    background: #ccff90;
+    border-radius: 0 15px 0 0;
+    -moz-border-radius: 0 15px 0 0;
+}
+
+.resultsDiv table tr:hover {
+    background: #e8f5e9;
+}
+
+.resultsDiv table tr:last-of-type td:first-of-type {
+    border-radius: 0 0 0 15px;
+    -moz-border-radius: 0 0 0 15px;
+}
+
+.resultsDiv table tr:last-of-type td:last-of-type {
+    border-radius: 0 0 15px 0;
+    -moz-border-radius: 0 0 15px 0;
+}
+
+/* MODAL WINDOW */
+.modalImage {
+    margin: 0 auto;
+}
+/* .modalCaption {
+    
+} */
+
+/* overwrite Materialize */
+
+.card {
+    border-radius: 15px 50px;
+}
+
+
+.underline {
+    border-bottom: 2px solid #1b5e20  !important;
+}
+label {
+    font-size: 1.2rem;
+}
+
+.input-field.col label {
+    font-size: 1.2rem;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    border-bottom: 1px solid #1b5e20 !important;
+    -webkit-box-shadow: 0 1px 0 0 #1b5e20 !important;
+    box-shadow: 0 1px 0 0 #1b5e20 !important;
+}
+
+select {
+    background-color: rgba(255, 255, 255, 0);
+    width: 100%;
+    padding: 5px;
+    border: 0 !important;
+    /* border-bottom: 2px solid #1b5e20  !important; */
+    border-radius: 0 !important;
+    height: 3rem;
+}
+
+select:focus {
+    border: 0 !important;
+    outline: none;
+}
+
+center {
+    text-align: center;
+}
