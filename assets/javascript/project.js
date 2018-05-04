@@ -129,6 +129,9 @@ function updatePage(AltFuelData) {
     $stationWell.addClass("well");
     $stationWell.attr("id", "station-well-" + stationCount);
 
+    // unhide table#well-section
+    $("#well-section").attr("style", "");
+
     // add the newly created element to the DOM
     $("#well-section").append($stationWell);
 

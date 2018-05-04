@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col s12 m3">
-                <img src="assets/images/green-truck-large.png" class="image-flip">
+                <img src="assets/images/green-truck-large.png" class="image-flip truck">
             </div>
 
             <div class="col s12 m6">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="col s12 m3">
-                <img src="assets/images/green-truck-large.png">
+                <img class="truck" src="assets/images/green-truck-large.png">
             </div>
         </div>
 
@@ -185,7 +185,7 @@
                         <div class="row">
                             <div class="col s12 m12">
                                 <label for="zipcode">ZIP Code</label>
-                                <input type="text" id="search-zipcode" maxlength="5" minlength="5" type="number">
+                                <input class="center-align" type="text" id="search-zipcode" maxlength="5" minlength="5" type="number">
                             </div>
 
                         </div>
@@ -215,7 +215,7 @@
         <div class="row">
             <div class="col-sm-12 resultsDiv">
                 <!-- This main panel will hold each of the resulting stations -->
-                <table class="centered" id="well-section">
+                <table class="centered" id="well-section" style="display: none">
                     <thead>
                         <tr>
                             <th>Fuel Type</th>
