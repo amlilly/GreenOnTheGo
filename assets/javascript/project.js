@@ -105,13 +105,9 @@ function updatePage(AltFuelData) {
 
     //add data into html table
     $("#well-section > tbody").append("<tr><td>" + fuelType + "</td><td>" + stationName +
-      "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip + "</td><td>" + "Modal Button Goes Here" + "</td></tr>");
+      "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip +
+      "</td><td>" + "Modal Button Goes Here" + "</td></tr>");
   }
-}
-
-// function to empty out the stations (Possible item to add once we get it all working)
-function clear() {
-  $("#well-section").empty();
 }
 
 
@@ -174,19 +170,26 @@ $('#form-container').submit(loadData);
 
 
 
+// function to empty out the table (Possible item to add once we get it all working)
+function clear() {
+  $("#table-data").empty();
+}
+
 /**
  **********************************************************
  * Click Handlers
  **********************************************************
  */
 
-// .on("click") function associated with the Search Button
+// .on("click") function associated with the ZIP Code Submit Button
 $("#run-zip").on("click", function (event) {
   // This line allows us to take advantage of the HTML "submit" property
   // This way we can hit enter on the keyboard and it registers the search
   // (in addition to clicks). Prevents the page from reloading on form submit.
   event.preventDefault();
 
+  // empty the region associated with the articles
+  clear();
 
   // build the query URL for the ajax request to the ALT Fuel API
   var queryURL = buildQueryURL();
