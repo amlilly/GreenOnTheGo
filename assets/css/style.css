@@ -76,6 +76,21 @@ h2.subtitle {
     -moz-border-radius: 0 0 15px 0;
 }
 
+/* set widths for table columns */
+.resultsDiv table tr td:nth-child(1) {
+    width: 15%;
+}
+.resultsDiv table tr td:nth-child(2) {
+    width: 15%;
+}
+.resultsDiv table tr td:nth-child(3) {
+    width: 50%;
+}
+.resultsDiv table tr td:nth-child(4) {
+    width: 20%;
+}
+
+
 /* MODAL WINDOW */
 .modalImage {
     margin: 0 auto;
