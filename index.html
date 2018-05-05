@@ -88,6 +88,13 @@
 
                 <div class="card green lighten-5">
                     <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <span id="jsRequiredCityState" class="red-text" style="opacity: 0;">
+                                    Please enter both a valid city and a state.
+                                </span>
+                            </div>
+                        </div>
                         <form>
                             <div class="row">
                                 <div class="col s6">
@@ -183,11 +190,17 @@
                 <div class="card green lighten-5">
                     <div class="card-content">
                         <div class="row">
+                            <div class="col s12">
+                                <span id="jsRequiredZipcode" class="red-text" style="opacity: 0;">
+                                    Please enter a valid zipcode.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col s12 m12">
                                 <label for="zipcode">ZIP Code</label>
                                 <input class="center-align" type="text" id="search-zipcode" maxlength="5" minlength="5" type="number">
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col s12">
@@ -207,7 +220,7 @@
 
     <section class="container">
 
-    <!-- ***************************************************************************
+        <!-- ***************************************************************************
     Area that displays the API data requested. Needs to be put into a table form
     *************************************************************************** -->
 

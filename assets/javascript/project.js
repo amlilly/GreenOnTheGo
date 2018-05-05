@@ -8,28 +8,24 @@ $('#search-city').keypress(function (e) {
   var regex = new RegExp("^[a-zA-Z .]+$");
   var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
   if (regex.test(str)) {
-      return true;
-  }
-  else
-  {
-  e.preventDefault();
-  // alert('Please Enter Alphabate');
-  return false;
+    return true;
+  } else {
+    e.preventDefault();
+    // alert('Please Enter Alphabate');
+    return false;
   }
 });
 
 //allows only numbers to be entered
 $('#search-zipcode').keypress(function (e) {
-  var regex = new RegExp("^[0-9]+$");  
+  var regex = new RegExp("^[0-9]+$");
   var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
   if (regex.test(str)) {
-      return true;
-  }
-  else
-  {
-  e.preventDefault();
-  // alert('Please Enter Alphabate');
-  return false;
+    return true;
+  } else {
+    e.preventDefault();
+    // alert('Please Enter Alphabate');
+    return false;
   }
 });
 
@@ -76,7 +72,7 @@ function buildQueryURLcityState() {
   // get state selected in state field
   var state = $("#search-state").val();
   // console.log("state is ", state);
-  
+
   // put city and state in a string
   var cityAndState = city + "+" + state;
   // console.log("cityAndState is ", cityAndState);
@@ -188,7 +184,7 @@ function updatePage(AltFuelData) {
 
     // replace spaces in constructDataLocationImage with +
     var constructDataLocationImageFinal = constructDataLocationImage.replace(/\s/g, "+");
-    
+
 
     // console.log("constructDataLocationImageFinal is ", constructDataLocationImageFinal);
 
@@ -199,7 +195,7 @@ function updatePage(AltFuelData) {
     var dataLocationName = stationName;
 
 
-    var modalLink = "<a class='jsImageButton waves-effect waves-light btn modal-trigger green' href='#modal1' data-location-image='" + dataLocationImage + "' data-location-name='" + dataLocationName + "'><i class='material-icons dp48'>image</i><span>View location</span></a>"; 
+    var modalLink = "<a class='jsImageButton waves-effect waves-light btn modal-trigger green' href='#modal1' data-location-image='" + dataLocationImage + "' data-location-name='" + dataLocationName + "'><i class='material-icons dp48'>image</i><span>View location</span></a>";
 
 
 
@@ -210,9 +206,9 @@ function updatePage(AltFuelData) {
       "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip +
       "</td><td>" + "Modal Button Goes Here" + "</td></tr>");
     */
-   $("#well-section > tbody").append("<tr><td>" + fuelType + "</td><td>" + stationName +
-   "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip +
-   "</td><td>" + modalLink + "</td></tr>");
+    $("#well-section > tbody").append("<tr><td>" + fuelType + "</td><td>" + stationName +
+      "</td><td>" + street + "<br>" + city + "," + "&nbsp;" + state + "&nbsp;" + zip +
+      "</td><td>" + modalLink + "</td></tr>");
 
 
 
@@ -303,6 +299,13 @@ $("#run-zip").on("click", function (event) {
   // (in addition to clicks). Prevents the page from reloading on form submit.
   event.preventDefault();
 
+  // if zipcode field is empty
+  if ($("#search-zipcode").val() === "") {
+    // alert("Please enter zipcode");
+    $("#jsRequiredZipcode").attr("style", "");
+    return;
+  }
+
   // empty the region associated with the articles
   clear();
 
@@ -315,6 +318,9 @@ $("#run-zip").on("click", function (event) {
     url: queryURL,
     method: "GET"
   }).then(updatePage);
+
+  // hide alert
+  $("#jsRequiredZipcode").attr("style", "opacity: 0");
 });
 
 
@@ -324,6 +330,27 @@ $("#run-city-state").on("click", function (event) {
   // This way we can hit enter on the keyboard and it registers the search
   // (in addition to clicks). Prevents the page from reloading on form submit.
   event.preventDefault();
+
+  // // if city field is empty
+  // if ($("#search-city").val() === "") {
+  //   alert("Please enter a city");
+  //   return;
+  // }
+
+  // // if state has not been selected
+  // if ($("#search-state option selected").val("")) {
+  //   alert("Please select a state");
+  //   return;
+  // }
+
+  if ($("#search-city").val() === "" || $("#search-state option selected").val("")) {
+    // alert("Please select both a city and a state");
+    $("#jsRequiredCityState").attr("style", "");
+    return;
+  }
+
+
+
 
   // empty the region associated with the articles
   clear();
@@ -338,4 +365,7 @@ $("#run-city-state").on("click", function (event) {
     url: queryURL,
     method: "GET"
   }).then(updatePage);
+
+  // hide alert
+  $("#jsRequiredCityState").attr("style", "opacity: 0");
 });
