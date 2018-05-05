@@ -319,7 +319,8 @@ $("#run-zip").on("click", function (event) {
     method: "GET"
   }).then(updatePage);
 
-  // hide alert
+  // hide alerts
+  $("#jsRequiredCityState").attr("style", "opacity: 0");
   $("#jsRequiredZipcode").attr("style", "opacity: 0");
 });
 
@@ -366,6 +367,7 @@ $("#run-city-state").on("click", function (event) {
     method: "GET"
   }).then(updatePage);
 
-  // hide alert
+  // hide alerts
   $("#jsRequiredCityState").attr("style", "opacity: 0");
+  $("#jsRequiredZipcode").attr("style", "opacity: 0");
 });
