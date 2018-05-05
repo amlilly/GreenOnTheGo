@@ -299,7 +299,7 @@ $("#run-zip").on("click", function (event) {
   // (in addition to clicks). Prevents the page from reloading on form submit.
   event.preventDefault();
 
-  // if zipcode field is empty
+  // if zipcode field is empty, show error message
   if ($("#search-zipcode").val() === "") {
     // alert("Please enter zipcode");
     $("#jsRequiredZipcode").attr("style", "");
@@ -332,19 +332,8 @@ $("#run-city-state").on("click", function (event) {
   // (in addition to clicks). Prevents the page from reloading on form submit.
   event.preventDefault();
 
-  // // if city field is empty
-  // if ($("#search-city").val() === "") {
-  //   alert("Please enter a city");
-  //   return;
-  // }
-
-  // // if state has not been selected
-  // if ($("#search-state option selected").val("")) {
-  //   alert("Please select a state");
-  //   return;
-  // }
-
-  if ($("#search-city").val() === "" || $("#search-state option selected").val("")) {
+  // if either city is empty or state has not been selected, show error message
+  if ($("#search-city").val() === "" || $("#search-state option selected").val() === "") {
     // alert("Please select both a city and a state");
     $("#jsRequiredCityState").attr("style", "");
     return;
